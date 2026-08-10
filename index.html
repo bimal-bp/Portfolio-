@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bimal Patra · Modern Portfolio</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Google Font (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #eef2f7;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      padding: 2rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      line-height: 1.5;
+      color: #1e293b;
+    }
+    .portfolio {
+      max-width: 1200px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 40px;
+      padding: 2.8rem 3rem;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.02);
+      transition: all 0.2s ease;
+    }
+    /* header */
+    .header-modern {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2.2rem;
+      padding-bottom: 1.8rem;
+      border-bottom: 2px solid #f0f4fa;
+    }
+    .name-title h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: #0a1a2b;
+      margin-bottom: 0.2rem;
+    }
+    .name-title .tagline {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #3a5a7a;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem 1rem;
+    }
+    .badge-modern {
+      background: #e3edf6;
+      padding: 0.15rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #1f4b6e;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    .contact-modern {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 1.8rem;
+      background: #f8fafc;
+      padding: 0.7rem 1.5rem;
+      border-radius: 80px;
+      border: 1px solid #e5ecf3;
+      margin-top: 0.2rem;
+      font-size: 0.9rem;
+    }
+    .contact-modern i {
+      color: #2a6b96;
+      width: 1.1rem;
+      margin-right: 4px;
+    }
+    .contact-modern a {
+      color: #1a3d5c;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .contact-modern a:hover { color: #0a1a2b; text-decoration: underline; }
+    /* summary */
+    .summary-modern {
+      background: #f5f9ff;
+      padding: 1.6rem 2rem;
+      border-radius: 28px;
+      margin-bottom: 2.8rem;
+      border-left: 6px solid #2a6b96;
+    }
+    .summary-modern p {
+      font-size: 1rem;
+      color: #1c3348;
+      line-height: 1.7;
+    }
+    .summary-modern i {
+      color: #2a6b96;
+      margin-right: 8px;
+    }
+    /* section titles with different colors */
+    .section-title-modern {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin: 2.6rem 0 1.4rem 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid #edf2f8;
+      padding-bottom: 0.5rem;
+    }
+    .section-title-modern i {
+      font-size: 1.3rem;
+      width: 2rem;
+    }
+    /* distinct colors for each section title */
+    .title-experience i { color: #b13e3e; }      /* red accent */
+    .title-projects i { color: #2a7a5e; }        /* green accent */
+    .title-skills i { color: #b17a2a; }          /* gold accent */
+    .title-feedback i { color: #7a4a9e; }        /* purple accent */
+
+    /* experience */
+    .exp-item {
+      margin-bottom: 1.8rem;
+      padding-left: 0.2rem;
+    }
+    .exp-header-modern {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.2rem;
+    }
+    .exp-header-modern h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0a1a2b;
+    }
+    .exp-header-modern .date-modern {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #4a6a8a;
+      background: #eef4fa;
+      padding: 0.15rem 1.2rem;
+      border-radius: 60px;
+    }
+    .exp-sub {
+      font-weight: 500;
+      color: #3a5a7a;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+    .exp-desc-modern ul {
+      list-style: none;
+      padding-left: 0.2rem;
+    }
+    .exp-desc-modern li {
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 10px;
+      color: #1e3348;
+    }
+    .exp-desc-modern li::before {
+      content: "◆";
+      color: #b13e3e;
+      font-size: 0.65rem;
+      align-self: center;
+    }
+
+    /* project cards */
+    .project-grid-modern {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+    .project-card-modern {
+      background: #fafcff;
+      border: 1px solid #e9eff6;
+      border-radius: 28px;
+      padding: 1.4rem 2rem 1.8rem 2rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .project-card-modern:hover {
+      border-color: #c0d4e8;
+      background: #ffffff;
+      box-shadow: 0 8px 20px -8px rgba(0,0,0,0.04);
+    }
+    .project-card-modern h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0a1a2b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .project-tag-modern {
+      font-size: 0.7rem;
+      background: #e5eff8;
+      padding: 0.15rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      color: #1f4b6e;
+      letter-spacing: 0.2px;
+    }
+    .objective-modern {
+      font-weight: 500;
+      color: #1a334a;
+      margin: 0.5rem 0 0.2rem 0;
+    }
+    .approach-modern {
+      color: #1a334a;
+      margin: 0.3rem 0 0.2rem 0;
+    }
+    .project-card-modern ul {
+      list-style: none;
+      padding-left: 0.1rem;
+      margin: 0.4rem 0 0.3rem 0;
+    }
+    .project-card-modern ul li {
+      margin-bottom: 0.3rem;
+      display: flex;
+      gap: 10px;
+      color: #1a334a;
+    }
+    .project-card-modern ul li::before {
+      content: "▹";
+      color: #2a7a5e;
+      font-weight: 600;
+    }
+    .impact-modern {
+      background: #ecf5f0;
+      border-left: 4px solid #2a7a5e;
+      padding: 0.5rem 1rem;
+      border-radius: 18px;
+      margin-top: 0.8rem;
+      font-weight: 500;
+      color: #1a3d30;
+      display: inline-block;
+    }
+    .impact-modern i {
+      color: #2a7a5e;
+      margin-right: 6px;
+    }
+    .skills-badge-modern {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+      margin: 0.8rem 0 0.2rem 0;
+    }
+    .skills-badge-modern span {
+      background: #f0f4fa;
+      color: #1f3d5a;
+      padding: 0.15rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* feedback cards (3 slots) */
+    .feedback-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.8rem;
+      margin: 1.2rem 0 0.2rem 0;
+    }
+    .feedback-slot {
+      background: #f8fafc;
+      border: 2px dashed #d0dcec;
+      border-radius: 28px;
+      padding: 1.6rem 1.2rem;
+      text-align: center;
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      color: #3a5a7a;
+    }
+    .feedback-slot:hover {
+      border-color: #7a4a9e;
+      background: #fcfaff;
+    }
+    .feedback-slot i {
+      font-size: 2.4rem;
+      color: #b89acf;
+      margin-bottom: 0.6rem;
+    }
+    .feedback-slot .placeholder-text {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #5a7a9a;
+    }
+    .feedback-slot .sub-text {
+      font-size: 0.7rem;
+      color: #7a9aba;
+      margin-top: 0.2rem;
+    }
+
+    /* core skills */
+    .core-skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.7rem;
+      margin: 0.5rem 0 0.2rem 0;
+    }
+    .core-skills-wrap span {
+      background: #f0f4fa;
+      padding: 0.3rem 1.6rem;
+      border-radius: 60px;
+      font-weight: 500;
+      color: #1a3d5c;
+      font-size: 0.85rem;
+      letter-spacing: 0.2px;
+      border: 1px solid #e5ecf3;
+    }
+    .core-skills-wrap span:hover {
+      background: #e6eef8;
+    }
+
+    /* footer */
+    .footer-modern {
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+      border-top: 2px solid #edf2f8;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem 2.5rem;
+      font-size: 0.9rem;
+      color: #3a5a7a;
+    }
+    .footer-modern i {
+      color: #2a6b96;
+      margin-right: 6px;
+    }
+    .extra-note {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: #4a6a8a;
+      text-align: center;
+      border-top: 1px solid #edf2f8;
+      padding-top: 1.2rem;
+    }
+
+    @media (max-width: 700px) {
+      .portfolio { padding: 1.8rem; }
+      .header-modern { flex-direction: column; gap: 1rem; }
+      .contact-modern { padding: 0.6rem 1rem; border-radius: 40px; }
+      .name-title h1 { font-size: 2.2rem; }
+      .feedback-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="portfolio">
+
+  <!-- HEADER -->
+  <div class="header-modern">
+    <div class="name-title">
+      <h1>BIMAL PATRA</h1>
+      <div class="tagline">
+        <span>Data Science &amp; Analytics</span>
+        <span class="badge-modern"><i class="fas fa-bolt" style="margin-right:4px;"></i>1.5+ years</span>
+      </div>
+    </div>
+    <div class="contact-modern">
+      <span><i class="fas fa-phone-alt"></i> 9348245158</span>
+      <span><i class="fas fa-envelope"></i> bimalpatrabp9@gmail.com</span>
+      <span><i class="fab fa-linkedin"></i> <a href="#">LinkedIn</a></span>
+      <span><i class="fas fa-folder-open"></i> <a href="#">Portfolio</a></span>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary-modern">
+    <p><i class="fas fa-bullseye"></i> <strong>Aspiring Data Scientist &amp; Analytics Professional</strong> with 1.5 years of experience as an Officer – AI in aggregate plant and quarry operations. Combines strong analytical capabilities with practical business and operational expertise. Experienced in developing and enhancing ERP systems, building MIS reports and dashboards, and leveraging Advanced Excel, SQL, Power BI, Python, and AI-powered tools to analyze data and support decision-making. Skilled in transforming complex operational data into actionable insights, identifying improvement opportunities, and delivering data-driven solutions that enhance operational efficiency, productivity, and overall business performance.</p>
+  </div>
+
+  <!-- EXPERIENCE (red accent) -->
+  <div class="section-title-modern title-experience"><i class="fas fa-briefcase"></i> Experience</div>
+  <div class="exp-item">
+    <div class="exp-header-modern">
+      <h3>Officer – Artificial Intelligence Process</h3>
+      <span class="date-modern">03/25 – Present</span>
+    </div>
+    <div class="exp-sub">SGX Minerals Pvt Ltd</div>
+    <div class="exp-desc-modern">
+      <ul>
+        <li>Developed and enhanced ERP systems to streamline operational processes, improve data accuracy, and support business decision-making.</li>
+        <li>Designed and maintained MIS reports, dashboards, and automated reporting solutions using Advanced Excel, Power BI, and AI-powered tools.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PROJECTS (green accent) -->
+  <div class="section-title-modern title-projects"><i class="fas fa-code"></i> Personal Projects</div>
+  <div class="project-grid-modern">
+
+    <!-- project 1 -->
+    <div class="project-card-modern">
+      <h4>
+        <span>Operational Command Center · Real-Time MIS Dashboard</span>
+        <span class="project-tag-modern"><i class="fas fa-chart-pie"></i> Power BI · SQL</span>
+      </h4>
+      <div class="objective-modern"><i class="fas fa-bullseye" style="color:#2a7a5e;"></i> <strong>Objective:</strong> Consolidate operational data (quarry, plant, dispatch) into a single source of truth for real-time KPI monitoring.</div>
+      <div class="approach-modern"><strong>Approach &amp; solution:</strong></div>
+      <ul>
+        <li>Integrated data from log sheets &amp; ERP modules using SQL &amp; Advanced Excel.</li>
+        <li>Built interactive Power BI dashboard with KPI cards, pivot tables, target-vs-achievement, FTD/MTD trends, vehicle utilisation and production summaries.</li>
+        <li>Automated data refresh for near real-time visibility.</li>
+      </ul>
+      <div class="impact-modern"><i class="fas fa-chart-line"></i> Impact: Reduced reporting lag from days to minutes; enabled faster bottleneck identification; improved management reviews.</div>
+      <div class="skills-badge-modern"><span>EDA</span><span>Power BI</span><span>SQL</span><span>Excel</span><span>KPI monitoring</span></div>
+    </div>
+
+    <!-- project 2 -->
+    <div class="project-card-modern">
+      <h4>
+        <span>Digital Transformation · ERP Enhancement</span>
+        <span class="project-tag-modern"><i class="fas fa-cogs"></i> ERP · Automation</span>
+      </h4>
+      <div class="objective-modern"><i class="fas fa-bullseye" style="color:#2a7a5e;"></i> <strong>Objective:</strong> Digitise manual operational processes (maintenance, fuel, inventory, billing) into a streamlined ERP system.</div>
+      <div class="approach-modern"><strong>Approach &amp; solution:</strong></div>
+      <ul>
+        <li>Mapped existing workflows and identified automation opportunities.</li>
+        <li>Led development of ERP modules for PM schedules, breakdown tracking, spare‑parts inventory, fuel management, transporter bill verification, attendance and task management.</li>
+        <li>Structured underlying data model to accurately capture operational costs and performance.</li>
+      </ul>
+      <div class="impact-modern"><i class="fas fa-check-circle"></i> Impact: Significantly reduced manual paperwork and errors; real‑time maintenance/inventory visibility; improved data accuracy.</div>
+      <div class="skills-badge-modern"><span>ERP enhancement</span><span>Process automation</span><span>Data modeling</span><span>Excel</span></div>
+    </div>
+
+    <!-- project 3 -->
+    <div class="project-card-modern">
+      <h4>
+        <span>Fleet Analytics &amp; Dispatch Optimization</span>
+        <span class="project-tag-modern"><i class="fab fa-python"></i> Python · EDA</span>
+      </h4>
+      <div class="objective-modern"><i class="fas fa-bullseye" style="color:#2a7a5e;"></i> <strong>Objective:</strong> Analyse vehicle dispatch data to optimize fleet utilization, reduce wait times, and improve material transport efficiency.</div>
+      <div class="approach-modern"><strong>Approach &amp; solution:</strong></div>
+      <ul>
+        <li>Collected and cleaned dispatch, travel time, loading/unloading, and tipper availability data.</li>
+        <li>Used Python (Pandas, NumPy) and statistical analysis to identify bottlenecks, analyse cycle times, monitor vehicle utilisation and fuel consumption.</li>
+        <li>Generated operational summaries for management.</li>
+      </ul>
+      <div class="impact-modern"><i class="fas fa-truck"></i> Impact: Better understanding of dispatch workflow; supported scheduling improvements leading to reduced wait times and lower fuel costs.</div>
+      <div class="skills-badge-modern"><span>Python</span><span>EDA</span><span>Statistics</span><span>Fleet analytics</span></div>
+    </div>
+
+    <!-- project 4 -->
+    <div class="project-card-modern">
+      <h4>
+        <span>Comprehensive Cost Analysis &amp; KPI Monitoring</span>
+        <span class="project-tag-modern"><i class="fas fa-calculator"></i> Excel · Cost modeling</span>
+      </h4>
+      <div class="objective-modern"><i class="fas fa-bullseye" style="color:#2a7a5e;"></i> <strong>Objective:</strong> Conduct end‑to‑end cost analysis (fuel, maintenance, manpower) correlated with production output to identify cost‑saving opportunities.</div>
+      <div class="approach-modern"><strong>Approach &amp; solution:</strong></div>
+      <ul>
+        <li>Consolidated fuel, maintenance, and production data.</li>
+        <li>Built advanced Excel cost model allocating cost per ton of production.</li>
+        <li>Defined &amp; monitored KPIs: fuel per ton, maintenance per operating hour, machinery availability, utilisation.</li>
+        <li>Used EDA to identify correlations between maintenance and downtime.</li>
+      </ul>
+      <div class="impact-modern"><i class="fas fa-coins"></i> Impact: Provided clear cost‑per‑ton visibility; identified cost overruns; fostered data‑driven cost management culture.</div>
+      <div class="skills-badge-modern"><span>Advanced Excel</span><span>KPI monitoring</span><span>Cost analysis</span><span>EDA</span></div>
+    </div>
+  </div>
+
+  <!-- FEEDBACK SECTION (purple accent) – 3 slots for screenshots -->
+  <div class="section-title-modern title-feedback"><i class="fas fa-star"></i> Feedback &amp; Recognition</div>
+  <div class="feedback-grid">
+    <div class="feedback-slot">
+      <i class="fas fa-image"></i>
+      <div class="placeholder-text">Screenshot 1</div>
+      <div class="sub-text">Company feedback</div>
+    </div>
+    <div class="feedback-slot">
+      <i class="fas fa-image"></i>
+      <div class="placeholder-text">Screenshot 2</div>
+      <div class="sub-text">Performance note</div>
+    </div>
+    <div class="feedback-slot">
+      <i class="fas fa-image"></i>
+      <div class="placeholder-text">Screenshot 3</div>
+      <div class="sub-text">Recognition / review</div>
+    </div>
+  </div>
+
+  <!-- SKILLS (gold accent) -->
+  <div class="section-title-modern title-skills"><i class="fas fa-cog"></i> Core Skills &amp; Expertise</div>
+  <div class="core-skills-wrap">
+    <span>Exploratory Data Analysis (EDA)</span>
+    <span>Statistics &amp; Data Analysis</span>
+    <span>Excel &amp; MIS Reporting</span>
+    <span>ERP Development &amp; Enhancement</span>
+    <span>Dashboard Development · BI</span>
+    <span>KPI Monitoring &amp; Reporting</span>
+    <span>AI‑Powered Productivity Tools</span>
+    <span>Python · SQL · Power BI</span>
+    <span>Process Automation</span>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-modern">
+    <span><i class="fas fa-database"></i> IT &amp; technical support: CCTV, network, weighbridge, biometric, hardware/software</span>
+    <span><i class="fas fa-graduation-cap"></i> B.Sc. Physics · 62%  |  Full Stack Data Science &amp; AI · 78%</span>
+  </div>
+  <div class="extra-note">
+    <i class="fas fa-flag-checkered"></i> End‑to‑end quarry‑to‑plant operations: drilling, blasting, boulder production, excavator/loader, crushing, dispatch, maintenance coordination
+  </div>
+
+</div> <!-- /portfolio -->
+</body>
+</html>
