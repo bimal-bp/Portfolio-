@@ -128,11 +128,10 @@
       font-size: 1.3rem;
       width: 2rem;
     }
-    /* distinct colors for each section title */
-    .title-experience i { color: #b13e3e; }      /* red accent */
-    .title-projects i { color: #2a7a5e; }        /* green accent */
-    .title-skills i { color: #b17a2a; }          /* gold accent */
-    .title-feedback i { color: #7a4a9e; }        /* purple accent */
+    .title-experience i { color: #b13e3e; }
+    .title-projects i { color: #2a7a5e; }
+    .title-skills i { color: #b17a2a; }
+    .title-feedback i { color: #7a4a9e; }
 
     /* experience */
     .exp-item {
@@ -182,137 +181,187 @@
       align-self: center;
     }
 
-    /* project cards */
+    /* project cards – short summary style */
     .project-grid-modern {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.8rem;
     }
     .project-card-modern {
       background: #fafcff;
       border: 1px solid #e9eff6;
       border-radius: 28px;
-      padding: 1.4rem 2rem 1.8rem 2rem;
+      padding: 1.4rem 1.6rem 1.6rem;
       transition: all 0.2s ease;
       box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
     }
     .project-card-modern:hover {
       border-color: #c0d4e8;
       background: #ffffff;
       box-shadow: 0 8px 20px -8px rgba(0,0,0,0.04);
+      transform: translateY(-2px);
     }
     .project-card-modern h4 {
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       font-weight: 600;
       color: #0a1a2b;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
     }
     .project-tag-modern {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       background: #e5eff8;
-      padding: 0.15rem 1.2rem;
+      padding: 0.1rem 1rem;
       border-radius: 60px;
       font-weight: 500;
       color: #1f4b6e;
+      display: inline-block;
+      margin-bottom: 0.5rem;
       letter-spacing: 0.2px;
     }
-    .objective-modern {
-      font-weight: 500;
+    .project-summary {
+      font-size: 0.9rem;
       color: #1a334a;
-      margin: 0.5rem 0 0.2rem 0;
+      line-height: 1.5;
+      flex: 1;
     }
-    .approach-modern {
-      color: #1a334a;
-      margin: 0.3rem 0 0.2rem 0;
+    .project-summary strong {
+      color: #0a1a2b;
     }
-    .project-card-modern ul {
-      list-style: none;
-      padding-left: 0.1rem;
-      margin: 0.4rem 0 0.3rem 0;
-    }
-    .project-card-modern ul li {
-      margin-bottom: 0.3rem;
-      display: flex;
-      gap: 10px;
-      color: #1a334a;
-    }
-    .project-card-modern ul li::before {
-      content: "▹";
-      color: #2a7a5e;
-      font-weight: 600;
-    }
-    .impact-modern {
+    .impact-short {
       background: #ecf5f0;
-      border-left: 4px solid #2a7a5e;
-      padding: 0.5rem 1rem;
-      border-radius: 18px;
-      margin-top: 0.8rem;
+      border-left: 3px solid #2a7a5e;
+      padding: 0.3rem 0.8rem;
+      border-radius: 14px;
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
       font-weight: 500;
       color: #1a3d30;
-      display: inline-block;
     }
-    .impact-modern i {
+    .impact-short i {
       color: #2a7a5e;
-      margin-right: 6px;
+      margin-right: 4px;
     }
     .skills-badge-modern {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem 0.6rem;
-      margin: 0.8rem 0 0.2rem 0;
+      gap: 0.3rem 0.5rem;
+      margin-top: 0.6rem;
     }
     .skills-badge-modern span {
       background: #f0f4fa;
       color: #1f3d5a;
-      padding: 0.15rem 1.2rem;
+      padding: 0.1rem 0.8rem;
       border-radius: 60px;
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       font-weight: 500;
     }
 
-    /* feedback cards (3 slots) */
+    /* feedback grid – with zoom on click */
     .feedback-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
       margin: 1.2rem 0 0.2rem 0;
     }
     .feedback-slot {
-      background: #f8fafc;
-      border: 2px dashed #d0dcec;
+      background: #fafcff;
+      border: 1px solid #e9eff6;
       border-radius: 28px;
-      padding: 1.6rem 1.2rem;
+      padding: 1.2rem;
       text-align: center;
-      min-height: 140px;
+      transition: 0.2s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      cursor: pointer;
+    }
+    .feedback-slot:hover {
+      border-color: #c0d4e8;
+      box-shadow: 0 8px 20px -8px rgba(0,0,0,0.04);
+    }
+    .feedback-slot img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid #eef4fa;
+      margin-bottom: 0.6rem;
+      transition: transform 0.2s ease;
+    }
+    .feedback-slot img:hover {
+      transform: scale(1.02);
+    }
+    .feedback-slot .feedback-label {
+      font-weight: 600;
+      color: #0a1a2b;
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+    }
+    .feedback-slot .feedback-sub {
+      font-size: 0.8rem;
+      color: #4a6a8a;
+    }
+
+    /* zoom overlay */
+    .zoom-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      padding: 2rem;
+      cursor: zoom-out;
+    }
+    .zoom-overlay.active {
       display: flex;
-      flex-direction: column;
+    }
+    .zoom-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      border: 2px solid rgba(255,255,255,0.1);
+      cursor: zoom-out;
+    }
+    .zoom-close {
+      position: absolute;
+      top: 2rem;
+      right: 2.5rem;
+      color: white;
+      font-size: 2.8rem;
+      font-weight: 300;
+      cursor: pointer;
+      background: rgba(0,0,0,0.3);
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 60px;
+      display: flex;
       align-items: center;
       justify-content: center;
       transition: 0.2s;
-      color: #3a5a7a;
+      border: 1px solid rgba(255,255,255,0.1);
     }
-    .feedback-slot:hover {
-      border-color: #7a4a9e;
-      background: #fcfaff;
+    .zoom-close:hover {
+      background: rgba(255,255,255,0.15);
+      transform: rotate(90deg);
     }
-    .feedback-slot i {
-      font-size: 2.4rem;
-      color: #b89acf;
-      margin-bottom: 0.6rem;
-    }
-    .feedback-slot .placeholder-text {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #5a7a9a;
-    }
-    .feedback-slot .sub-text {
-      font-size: 0.7rem;
-      color: #7a9aba;
-      margin-top: 0.2rem;
+    @media (max-width: 700px) {
+      .portfolio { padding: 1.8rem; }
+      .header-modern { flex-direction: column; gap: 1rem; }
+      .contact-modern { padding: 0.6rem 1rem; border-radius: 40px; }
+      .name-title h1 { font-size: 2.2rem; }
+      .feedback-grid { grid-template-columns: 1fr; }
+      .project-grid-modern { grid-template-columns: 1fr; }
+      .zoom-overlay img { max-width: 95%; max-height: 80%; }
     }
 
     /* core skills */
@@ -360,14 +409,6 @@
       border-top: 1px solid #edf2f8;
       padding-top: 1.2rem;
     }
-
-    @media (max-width: 700px) {
-      .portfolio { padding: 1.8rem; }
-      .header-modern { flex-direction: column; gap: 1rem; }
-      .contact-modern { padding: 0.6rem 1rem; border-radius: 40px; }
-      .name-title h1 { font-size: 2.2rem; }
-      .feedback-grid { grid-template-columns: 1fr; }
-    }
   </style>
 </head>
 <body>
@@ -411,97 +452,70 @@
     </div>
   </div>
 
-  <!-- PROJECTS (green accent) -->
+  <!-- PROJECTS (green accent) – short summaries -->
   <div class="section-title-modern title-projects"><i class="fas fa-code"></i> Personal Projects</div>
   <div class="project-grid-modern">
 
-    <!-- project 1 -->
+    <!-- Project 1 -->
     <div class="project-card-modern">
-      <h4>
-        <span>Operational Command Center · Real-Time MIS Dashboard</span>
-        <span class="project-tag-modern"><i class="fas fa-chart-pie"></i> Power BI · SQL</span>
-      </h4>
-      <div class="objective-modern"><i class="fas fa-bullseye" style="color:#2a7a5e;"></i> <strong>Objective:</strong> Consolidate operational data (quarry, plant, dispatch) into a single source of truth for real-time KPI monitoring.</div>
-      <div class="approach-modern"><strong>Approach &amp; solution:</strong></div>
-      <ul>
-        <li>Integrated data from log sheets &amp; ERP modules using SQL &amp; Advanced Excel.</li>
-        <li>Built interactive Power BI dashboard with KPI cards, pivot tables, target-vs-achievement, FTD/MTD trends, vehicle utilisation and production summaries.</li>
-        <li>Automated data refresh for near real-time visibility.</li>
-      </ul>
-      <div class="impact-modern"><i class="fas fa-chart-line"></i> Impact: Reduced reporting lag from days to minutes; enabled faster bottleneck identification; improved management reviews.</div>
-      <div class="skills-badge-modern"><span>EDA</span><span>Power BI</span><span>SQL</span><span>Excel</span><span>KPI monitoring</span></div>
+      <h4>Operational Command Center · Real-Time MIS Dashboard</h4>
+      <span class="project-tag-modern"><i class="fas fa-chart-pie"></i> Power BI · SQL</span>
+      <div class="project-summary">
+        <strong>Objective:</strong> Consolidated quarry, plant &amp; dispatch data into a single Power BI dashboard with KPI cards, FTD/MTD trends, and target-vs-actual analysis.
+      </div>
+      <div class="impact-short"><i class="fas fa-chart-line"></i> Reduced reporting lag from days to minutes; faster bottleneck detection.</div>
+      <div class="skills-badge-modern"><span>EDA</span><span>Power BI</span><span>SQL</span><span>Excel</span></div>
     </div>
 
-    <!-- project 2 -->
+    <!-- Project 2 -->
     <div class="project-card-modern">
-      <h4>
-        <span>Digital Transformation · ERP Enhancement</span>
-        <span class="project-tag-modern"><i class="fas fa-cogs"></i> ERP · Automation</span>
-      </h4>
-      <div class="objective-modern"><i class="fas fa-bullseye" style="color:#2a7a5e;"></i> <strong>Objective:</strong> Digitise manual operational processes (maintenance, fuel, inventory, billing) into a streamlined ERP system.</div>
-      <div class="approach-modern"><strong>Approach &amp; solution:</strong></div>
-      <ul>
-        <li>Mapped existing workflows and identified automation opportunities.</li>
-        <li>Led development of ERP modules for PM schedules, breakdown tracking, spare‑parts inventory, fuel management, transporter bill verification, attendance and task management.</li>
-        <li>Structured underlying data model to accurately capture operational costs and performance.</li>
-      </ul>
-      <div class="impact-modern"><i class="fas fa-check-circle"></i> Impact: Significantly reduced manual paperwork and errors; real‑time maintenance/inventory visibility; improved data accuracy.</div>
-      <div class="skills-badge-modern"><span>ERP enhancement</span><span>Process automation</span><span>Data modeling</span><span>Excel</span></div>
+      <h4>Digital Transformation · ERP Enhancement</h4>
+      <span class="project-tag-modern"><i class="fas fa-cogs"></i> ERP · Automation</span>
+      <div class="project-summary">
+        <strong>Objective:</strong> Digitised manual maintenance, fuel, inventory and billing processes into an automated ERP system with PM schedules and breakdown tracking.
+      </div>
+      <div class="impact-short"><i class="fas fa-check-circle"></i> Reduced manual errors; real‑time inventory/maintenance visibility.</div>
+      <div class="skills-badge-modern"><span>ERP</span><span>Automation</span><span>Data modeling</span><span>Excel</span></div>
     </div>
 
-    <!-- project 3 -->
+    <!-- Project 3 -->
     <div class="project-card-modern">
-      <h4>
-        <span>Fleet Analytics &amp; Dispatch Optimization</span>
-        <span class="project-tag-modern"><i class="fab fa-python"></i> Python · EDA</span>
-      </h4>
-      <div class="objective-modern"><i class="fas fa-bullseye" style="color:#2a7a5e;"></i> <strong>Objective:</strong> Analyse vehicle dispatch data to optimize fleet utilization, reduce wait times, and improve material transport efficiency.</div>
-      <div class="approach-modern"><strong>Approach &amp; solution:</strong></div>
-      <ul>
-        <li>Collected and cleaned dispatch, travel time, loading/unloading, and tipper availability data.</li>
-        <li>Used Python (Pandas, NumPy) and statistical analysis to identify bottlenecks, analyse cycle times, monitor vehicle utilisation and fuel consumption.</li>
-        <li>Generated operational summaries for management.</li>
-      </ul>
-      <div class="impact-modern"><i class="fas fa-truck"></i> Impact: Better understanding of dispatch workflow; supported scheduling improvements leading to reduced wait times and lower fuel costs.</div>
-      <div class="skills-badge-modern"><span>Python</span><span>EDA</span><span>Statistics</span><span>Fleet analytics</span></div>
+      <h4>Fleet Analytics &amp; Dispatch Optimization</h4>
+      <span class="project-tag-modern"><i class="fab fa-python"></i> Python · EDA</span>
+      <div class="project-summary">
+        <strong>Objective:</strong> Analysed dispatch, travel times and tipper utilisation using Python (Pandas, NumPy) to identify bottlenecks and reduce wait times.
+      </div>
+      <div class="impact-short"><i class="fas fa-truck"></i> Supported scheduling improvements; reduced wait times and fuel costs.</div>
+      <div class="skills-badge-modern"><span>Python</span><span>EDA</span><span>Statistics</span></div>
     </div>
 
-    <!-- project 4 -->
+    <!-- Project 4 -->
     <div class="project-card-modern">
-      <h4>
-        <span>Comprehensive Cost Analysis &amp; KPI Monitoring</span>
-        <span class="project-tag-modern"><i class="fas fa-calculator"></i> Excel · Cost modeling</span>
-      </h4>
-      <div class="objective-modern"><i class="fas fa-bullseye" style="color:#2a7a5e;"></i> <strong>Objective:</strong> Conduct end‑to‑end cost analysis (fuel, maintenance, manpower) correlated with production output to identify cost‑saving opportunities.</div>
-      <div class="approach-modern"><strong>Approach &amp; solution:</strong></div>
-      <ul>
-        <li>Consolidated fuel, maintenance, and production data.</li>
-        <li>Built advanced Excel cost model allocating cost per ton of production.</li>
-        <li>Defined &amp; monitored KPIs: fuel per ton, maintenance per operating hour, machinery availability, utilisation.</li>
-        <li>Used EDA to identify correlations between maintenance and downtime.</li>
-      </ul>
-      <div class="impact-modern"><i class="fas fa-coins"></i> Impact: Provided clear cost‑per‑ton visibility; identified cost overruns; fostered data‑driven cost management culture.</div>
-      <div class="skills-badge-modern"><span>Advanced Excel</span><span>KPI monitoring</span><span>Cost analysis</span><span>EDA</span></div>
+      <h4>Comprehensive Cost Analysis &amp; KPI Monitoring</h4>
+      <span class="project-tag-modern"><i class="fas fa-calculator"></i> Excel · Cost modeling</span>
+      <div class="project-summary">
+        <strong>Objective:</strong> Built an Excel cost model linking fuel, maintenance and production data to calculate cost-per-ton and monitor machinery KPIs.
+      </div>
+      <div class="impact-short"><i class="fas fa-coins"></i> Identified cost overruns; fostered data‑driven cost management.</div>
+      <div class="skills-badge-modern"><span>Advanced Excel</span><span>KPI</span><span>Cost analysis</span></div>
     </div>
+
   </div>
 
-  <!-- FEEDBACK SECTION (purple accent) – 3 slots for screenshots -->
+  <!-- FEEDBACK SECTION (purple accent) – direct preview + zoom -->
   <div class="section-title-modern title-feedback"><i class="fas fa-star"></i> Feedback &amp; Recognition</div>
   <div class="feedback-grid">
-    <div class="feedback-slot">
-      <i class="fas fa-image"></i>
-      <div class="placeholder-text">Screenshot 1</div>
-      <div class="sub-text">Company feedback</div>
+    <!-- Feedback 1: Executive Director -->
+    <div class="feedback-slot" onclick="openZoom(this.querySelector('img').src)">
+      <img src="https://github.com/bimal-bp/Portfolio-/blob/main/WhatsApp%20Image%202026-08-10%20at%205.25.27%20PM.jpeg?raw=true" alt="Feedback from Executive Director" />
+      <div class="feedback-label"><i class="fas fa-user-tie" style="color:#7a4a9e;"></i> Executive Director</div>
+      <div class="feedback-sub">Appreciation &amp; Achievement</div>
     </div>
-    <div class="feedback-slot">
-      <i class="fas fa-image"></i>
-      <div class="placeholder-text">Screenshot 2</div>
-      <div class="sub-text">Performance note</div>
-    </div>
-    <div class="feedback-slot">
-      <i class="fas fa-image"></i>
-      <div class="placeholder-text">Screenshot 3</div>
-      <div class="sub-text">Recognition / review</div>
+    <!-- Feedback 2: Lead Manager -->
+    <div class="feedback-slot" onclick="openZoom(this.querySelector('img').src)">
+      <img src="https://github.com/bimal-bp/Portfolio-/blob/main/WhatsApp%20Image%202026-08-10%20at%205.26.42%20PM.jpeg?raw=true" alt="Feedback from Lead Manager" />
+      <div class="feedback-label"><i class="fas fa-user-check" style="color:#7a4a9e;"></i> Lead Manager</div>
+      <div class="feedback-sub">Recognition &amp; Review</div>
     </div>
   </div>
 
@@ -529,5 +543,37 @@
   </div>
 
 </div> <!-- /portfolio -->
+
+<!-- ZOOM OVERLAY (lightbox) -->
+<div id="zoomOverlay" class="zoom-overlay" onclick="closeZoom()">
+  <span class="zoom-close" onclick="event.stopPropagation(); closeZoom();">&times;</span>
+  <img id="zoomImage" src="" alt="Zoomed feedback" />
+</div>
+
+<script>
+  // Open zoom with the clicked image source
+  function openZoom(src) {
+    const overlay = document.getElementById('zoomOverlay');
+    const img = document.getElementById('zoomImage');
+    if (src) {
+      img.src = src;
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  // Close zoom
+  function closeZoom() {
+    const overlay = document.getElementById('zoomOverlay');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeZoom();
+    }
+  });
+</script>
+
 </body>
 </html>
